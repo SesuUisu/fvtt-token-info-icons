@@ -2,15 +2,19 @@
   "name": "token-info-icons",
   "title": "Token Info Icons",
   "description": "Simple module that displays Speed, AC, and Passive Perception on Tokens for the GM or optionally players.",
-  "version": "2.3.9",
+  "version": "2.3.9.1",
   "minimumCoreVersion": "0.8.0",
   "compatibleCoreVersion": "10",
-  "author": "Jan Ole Peek (ChalkOne)",
+  "authors": [
+    {"name":"Jan Ole Peek (ChalkOne)"},
+    {"name":"Sesu","url": "https://github.com/SesuUisu"}
+  ],
   "system": [
     "dnd5e",
     "pf2e",
     "pf1",
-    "dcc"
+    "dcc",
+    "dsa-41"
   ],
   "scripts": [
     "/token-info-icons.js"
@@ -18,7 +22,19 @@
   "styles": [
     "/css/token-info-icons.css"
   ],
+  "languages": [
+  {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+  },
+  {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+  }
+  ],
   "url": "https://github.com/jopeek/fvtt-token-info-icons",
-  "manifest": "https://raw.githubusercontent.com/jopeek/fvtt-token-info-icons/master/module.json",
-  "download": "https://github.com/jopeek/fvtt-token-info-icons/archive/refs/heads/master.zip"
+  "manifest": "https://raw.githubusercontent.com/SesuUisu/fvtt-token-info-icons/dsa-41/module.json",
+  "download": "https://github.com/SesuUisu/fvtt-token-info-icons/archive/refs/heads/dsa-41.zip"
 }

@@ -6,29 +6,35 @@ class TokenInfoIcons {
 
       let ac = 10
       if (game.world.data.system === "pf1") {
-          ac = actor.data.data.attributes.ac.normal.total
+          ac = actor.system.attributes.ac.normal.total
       }
       else if (game.world.data.system === "dcc") {
-            ac = actor.data.data.attributes.ac.value
-      } else {
-          ac = (isNaN(parseInt(actor.data.data.attributes.ac.value)) || parseInt(actor.data.data.attributes.ac.value) === 0) ? 10 : parseInt(actor.data.data.attributes.ac.value);
+            ac = actor.system.attributes.ac.value
+      } 
+      else if (game.world.data.system === "dsa-41") {
+            ac = actor.system.base.combatAttributes.passive.physicalResistance.value
+      } else{
+          ac = (isNaN(parseInt(actor.system.attributes.ac.value)) || parseInt(actor.system.attributes.ac.value) === 0) ? 10 : parseInt(actor.system.attributes.ac.value);
       }
 
-      let perceptionTitle = "Passive Perception";
+      let perceptionTitle = game.i18n.localize("TOKEN_INFO_ICONS.general.passivePerception");
       let perception = 10;
       if (game.world.data.system === "pf1") {
-          perception = actor.data.data.skills.per.mod
-          perceptionTitle = "Perception Mod";
+          perception = actor.system.skills.per.mod
+          perceptionTitle = game.i18n.localize("TOKEN_INFO_ICONS.general.perceptionMod");
       } else if (game.world.data.system === "pf2e") {
-          perception = perception + actor.data.data.attributes.perception.value;
-          perceptionTitle = "Perception DC";
+          perception = perception + actor.system.attributes.perception.value;
+          perceptionTitle = game.i18n.localize("TOKEN_INFO_ICONS.general.perceptionDC");
       }
       else if (game.world.data.system === "dcc") {
         perception = 0
-        perceptionTitle = "Perception DC";
+        perceptionTitle = game.i18n.localize("TOKEN_INFO_ICONS.general.perceptionDC");
       }
-       else {
-          perception = actor.data.data.skills.prc.passive;
+      else if (game.world.data.system === "dsa-41") {
+            perception = actor.system.base.combatAttributes.passive.magicalResistance.value
+            perceptionTitle = game.i18n.localize("TOKEN_INFO_ICONS.general.mr");
+      } else{
+          perception = actor.system.skills.prc.passive;
       }
 
       //console.log("TokenInfoIcons", actor);
@@ -37,24 +43,26 @@ class TokenInfoIcons {
 
       if (game.world.data.system === "pf2e") {
           if (actor.data.type === "npc") {
-              speed = '<span class="token-info-speed" title="Speed"><i class="fas fa-walking"></i><span style="font-size: 0.65em;"> ' + actor.data.data.attributes.speed.value + '</span></span>';
+              speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.speed") + '"><i class="fas fa-walking"></i><span style="font-size: 0.65em;"> ' + actor.system.attributes.speed.value + '</span></span>';
           } else if (actor.data.type === "familiar") {
               // Familiars seem to get either 25 ft. land or water speed
               // It can be modified by other abilities but they will be revising these later so this will likely change
-              speed = '<span class="token-info-speed" title="Speed"><i class="fas fa-walking"></i> 25</span>';
+              speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.speed") + '"><i class="fas fa-walking"></i> 25</span>';
           } else {
-              speed = '<span class="token-info-speed" title="Land"><i class="fas fa-walking"></i> ' + actor.data.data.attributes.speed.total + '</span>';
+              speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.land") + '"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.total + '</span>';
           }
       } else if (game.world.data.system === "pf1") {
-          speed = '<span class="token-info-speed" title="Land"><i class="fas fa-walking"></i> ' + actor.data.data.attributes.speed.land.total + '</span>';
+          speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.land") + '"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.land.total + '</span>';
       } else if (game.world.data.system === "dcc") {
-          speed = '<span class="token-info-speed" title="Movement"><i class="fas fa-walking"></i> ' + actor.data.data.attributes.speed.base + '</span>';
+          speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.movement") + '"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.base + '</span>';
+      } else if (game.world.data.system === "dsa-41") {
+          speed = '<span class="token-info-speed" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.speed") + '"><i class="fas fa-walking"></i> ' + actor.system.base.movement.speed.value + '</span>';
       } else {
-          if (actor.data.data.attributes.movement.walk != 0 && actor.data.data.attributes.movement.walk != null) speed += '<span class="token-info-speed" title="Walk"><i class="fas fa-walking"></i> ' + actor.data.data.attributes.movement.walk + '<span style="font-size: 0.5em;"> ' + actor.data.data.attributes.movement.units + "</span></span>";
-          if (actor.data.data.attributes.movement.swim != 0 && actor.data.data.attributes.movement.swim != null) speed += '<span class="token-info-speed" title="Swim"><i class="fas fa-swimmer"></i> ' + actor.data.data.attributes.movement.swim + '<span style="font-size: 0.5em;"> ' + actor.data.data.attributes.movement.units + "</span></span>";
-          if (actor.data.data.attributes.movement.fly != 0 && actor.data.data.attributes.movement.fly != null) speed += '<span class="token-info-speed" title="Fly"><i class="fas fa-crow"></i> ' + actor.data.data.attributes.movement.fly + '<span style="font-size: 0.5em;"> ' + actor.data.data.attributes.movement.units + "</span></span>";
-          if (actor.data.data.attributes.movement.burrow != 0 && actor.data.data.attributes.movement.burrow != null) speed += '<span class="token-info-speed" title="Burrow"><i class="fas fa-mountain"></i> ' + actor.data.data.attributes.movement.burrow + '<span style="font-size: 0.5em;"> ' + actor.data.data.attributes.movement.units + "</span></span>";
-          if (actor.data.data.attributes.movement.climb != 0 && actor.data.data.attributes.movement.climb != null) speed += '<span class="token-info-speed" title="Climb"><i class="fas fa-grip-lines"></i> ' + actor.data.data.attributes.movement.climb + '<span style="font-size: 0.5em;"> ' + actor.data.data.attributes.movement.units + "</span></span>";
+          if (actor.system.attributes.movement.walk != 0 && actor.system.attributes.movement.walk != null) speed += '<span class="token-info-speed" title="Walk"><i class="fas fa-walking"></i> ' + actor.system.attributes.movement.walk + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
+          if (actor.system.attributes.movement.swim != 0 && actor.system.attributes.movement.swim != null) speed += '<span class="token-info-speed" title="Swim"><i class="fas fa-swimmer"></i> ' + actor.system.attributes.movement.swim + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
+          if (actor.system.attributes.movement.fly != 0 && actor.system.attributes.movement.fly != null) speed += '<span class="token-info-speed" title="Fly"><i class="fas fa-crow"></i> ' + actor.system.attributes.movement.fly + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
+          if (actor.system.attributes.movement.burrow != 0 && actor.system.attributes.movement.burrow != null) speed += '<span class="token-info-speed" title="Burrow"><i class="fas fa-mountain"></i> ' + actor.system.attributes.movement.burrow + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
+          if (actor.system.attributes.movement.climb != 0 && actor.system.attributes.movement.climb != null) speed += '<span class="token-info-speed" title="Climb"><i class="fas fa-grip-lines"></i> ' + actor.system.attributes.movement.climb + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
       }
 
       // DCC luck
@@ -62,7 +70,7 @@ class TokenInfoIcons {
       let luck = null;
       if (game.world.data.system === "dcc") {
         if (actor.data.type === "Player") {
-          luck =  actor.data.data.abilities.lck.value;
+          luck =  actor.system.abilities.lck.value;
         }
       }
 
@@ -70,26 +78,26 @@ class TokenInfoIcons {
 
       let position = game.settings.get('token-info-icons', 'position');
 
-      let defaultButtons = '<div class="control-icon token-info-icon">' + speed + '</div><div class="control-icon token-info-icon" title="Armor Class: ' + ac + '"><i class="fas fa-shield-alt"></i> ' + ac + '</div>';
+      let defaultButtons = '<div class="control-icon token-info-icon">' + speed + '</div><div class="control-icon token-info-icon" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.ac") + ': ' + ac + '"><i class="fas fa-shield-alt"></i> ' + ac + '</div>';
       if (game.world.data.system !== "dcc"){
-        defaultButtons += '<div class="control-icon token-info-icon" title="Passive Perception: ' + perception + '"><i class="fas fa-eye"></i> ' + perception + '</div>'
+        defaultButtons += '<div class="control-icon token-info-icon" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.passivePerception") + ': ' + perception + '"><i class="fas fa-eye"></i> ' + perception + '</div>'
       }else{
         // dcc specific
         if(luck != null){
-          defaultButtons += '<div class="control-icon token-info-icon" title="Luck: ' + luck + '"><i class="fas fa-star"></i> ' + luck + '</div>'
+          defaultButtons += '<div class="control-icon token-info-icon" title="' + game.i18n.localize("TOKEN_INFO_ICONS.general.luck") + ': ' + luck + '"><i class="fas fa-star"></i> ' + luck + '</div>'
         }
       }
       
 
       let passiveSensesButtons = '';
-      if (!['pf2e', 'pf1'].includes(game.world.data.system) && game.settings.get('token-info-icons', 'allPassiveSenses')) {
-          const investigation = actor.data.data.skills.inv.passive;
-          const insight = actor.data.data.skills.ins.passive;
-          const stealth = actor.data.data.skills.ste.passive;
+      if (!['pf2e', 'pf1','dsa-41'].includes(game.world.data.system) && game.settings.get('token-info-icons', 'allPassiveSenses')) {
+          const investigation = actor.system.skills.inv.passive;
+          const insight = actor.system.skills.ins.passive;
+          const stealth = actor.system.skills.ste.passive;
 
-          const passiveInvestigationButton = `<div class="control-icon token-info-icon" title="Passive Investigation: ${investigation}"><i class="fas fa-search"></i> ${investigation}</div>`;
-          const passiveInsightButton = `<div class="control-icon token-info-icon" title="Passive Insight: ${insight}"><i class="fas fa-lightbulb"></i> ${insight}</div>`;
-          const passiveStealthButton = `<div class="control-icon token-info-icon" title="Passive Stealth: ${stealth}"><i class="fas fa-eye-slash"></i> ${stealth}</div>`;
+          const passiveInvestigationButton = `<div class="control-icon token-info-icon" title="` + game.i18n.localize("TOKEN_INFO_ICONS.general.passiveInvestigation") + `: ${investigation}"><i class="fas fa-search"></i> ${investigation}</div>`;
+          const passiveInsightButton = `<div class="control-icon token-info-icon" title="` + game.i18n.localize("TOKEN_INFO_ICONS.general.passiveInsigth") + `: ${insight}"><i class="fas fa-lightbulb"></i> ${insight}</div>`;
+          const passiveStealthButton = `<div class="control-icon token-info-icon" title="` + game.i18n.localize("TOKEN_INFO_ICONS.general.passiveStealth") + `: ${stealth}"><i class="fas fa-eye-slash"></i> ${stealth}</div>`;
           passiveSensesButtons = `${passiveInvestigationButton}${passiveInsightButton}${passiveStealthButton}`;
       }
 
@@ -119,8 +127,8 @@ Hooks.on('ready', () => {
 Hooks.once("init", () => {
 
   game.settings.register('token-info-icons', 'gmOnly', {
-      name: "GM only?",
-      hint: "Show the token info to the GM only or to all players?",
+      name: game.i18n.localize("TOKEN_INFO_ICONS.settings.gmonly"),
+      hint: game.i18n.localize("TOKEN_INFO_ICONS.settings.gmonly.hint"),
       scope: "world",
       config: true,
       default: true,
@@ -128,8 +136,8 @@ Hooks.once("init", () => {
   });
 
   game.settings.register('token-info-icons', 'allPassiveSenses', {
-      name: 'Show all passive senses (dnd5e)',
-      hint: 'Show passive perception/investigation/insight/stealth instead of just passive perception',
+      name: game.i18n.localize("TOKEN_INFO_ICONS.settings.passivesense"),
+      hint: game.i18n.localize("TOKEN_INFO_ICONS.settings.passivesense.hint"),
       scope: "world",
       config: true,
       default: false,
@@ -137,15 +145,15 @@ Hooks.once("init", () => {
   });
 
   game.settings.register('token-info-icons', 'position', {
-      name: "Token Position",
-      hint: "Which side of the token should the info appear on?",
+      name: game.i18n.localize("TOKEN_INFO_ICONS.settings.position"),
+      hint: game.i18n.localize("TOKEN_INFO_ICONS.settings.position.hint"),
       scope: "world",
       config: true,
       type: String,
       default: "left",
       choices: {
-          "left": "left",
-          "right": "right",
+          "left": game.i18n.localize("TOKEN_INFO_ICONS.settings.left"),
+          "right": game.i18n.localize("TOKEN_INFO_ICONS.settings.right"),
       }
   });
 });

@@ -1,0 +1,28 @@
+{
+  "TOKEN_INFO_ICONS.settings.gmonly":"GM only?",
+  "TOKEN_INFO_ICONS.settings.gmonly.hint":"Show the token info to the GM only or to all players?",
+  "TOKEN_INFO_ICONS.settings.passivesense":"Show all passive senses (dnd5e)",
+  "TOKEN_INFO_ICONS.settings.passivesense.hint":"Show passive perception/investigation/insight/stealth instead of just passive perception",
+  "TOKEN_INFO_ICONS.settings.position":"Token Position",
+  "TOKEN_INFO_ICONS.settings.postion.hint":"Which side of the token should the info appear on?",
+  "TOKEN_INFO_ICONS.settings.left":"left",
+  "TOKEN_INFO_ICONS.settings.right":"right",
+  
+  
+  "TOKEN_INFO_ICONS.general.speed":"Speed",
+  "TOKEN_INFO_ICONS.general.land":"Land",
+  "TOKEN_INFO_ICONS.general.movement":"Movement",
+  
+  "TOKEN_INFO_ICONS.general.ac":"Armor Class",
+  "TOKEN_INFO_ICONS.general.passivePerception":"Passive Perception", 
+  "TOKEN_INFO_ICONS.general.perceptionMod":"Perception Mod",
+  "TOKEN_INFO_ICONS.general.perceptionDC":"Perception DC",
+  "TOKEN_INFO_ICONS.general.passiveStealth":"Passive Stealth",
+  "TOKEN_INFO_ICONS.general.passiveInsight":"Passive Insight",
+  "TOKEN_INFO_ICONS.general.passiveInvestigation":"Passive Investigation",
+  "TOKEN_INFO_ICONS.general.luck":"luck",
+  
+  
+  "TOKEN_INFO_ICONS.general.mr":"MR"
+}
+
