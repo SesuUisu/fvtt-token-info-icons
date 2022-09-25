@@ -1,28 +1,33 @@
 {
   "TOKEN_INFO_ICONS.settings.gmonly":"Nur für SL?",
-  "TOKEN_INFO_ICONS.settings.gmonly.hint":"Zeige Token Info nur für den SL oder für alle Spieler an",
+  "TOKEN_INFO_ICONS.settings.gmonlytext":"Zeige Token Info nur für den SL oder für alle Spieler an",
   "TOKEN_INFO_ICONS.settings.passivesense":"Zeige alle passiven Sinne an (dnd5e)",
-  "TOKEN_INFO_ICONS.settings.passivesense.hint":"Show passive perception/investigation/insight/stealth instead of just passive perception",
+  "TOKEN_INFO_ICONS.settings.passivesensetexz":"Show passive perception/investigation/insight/stealth instead of just passive perception",
   "TOKEN_INFO_ICONS.settings.position":"Token Position",
-  "TOKEN_INFO_ICONS.settings.postion.hint":"Auf welcher Seite des Tokens sollen die Infos angezeigt werden?",
+  "TOKEN_INFO_ICONS.settings.postiontext":"Auf welcher Seite des Tokens sollen die Infos angezeigt werden?",
+  
   "TOKEN_INFO_ICONS.settings.left":"links",
   "TOKEN_INFO_ICONS.settings.right":"rechts",
+    
+  "TOKEN_INFO_ICONS.general.speed": "Geschwindigkeit",
+  "TOKEN_INFO_ICONS.general.walk": "Gehen",
+  "TOKEN_INFO_ICONS.general.swim": "Schwimmen",
+  "TOKEN_INFO_ICONS.general.fly": "Fliegen",
+  "TOKEN_INFO_ICONS.general.burrow": "Burrow",
+  "TOKEN_INFO_ICONS.general.climb": "Klettern",
+  "TOKEN_INFO_ICONS.general.land": "Land",
+  "TOKEN_INFO_ICONS.general.movement": "Bewegung",
   
+  "TOKEN_INFO_ICONS.general.ac":"Rüstung",
   
-  "TOKEN_INFO_ICONS.general.speed":"Speed",
-  "TOKEN_INFO_ICONS.general.land":"Land",
-  "TOKEN_INFO_ICONS.general.movement":"Movement",
-  
-  "TOKEN_INFO_ICONS.general.ac":"Armor Class",
-  "TOKEN_INFO_ICONS.general.passivePerception":"Passive Perception", 
-  "TOKEN_INFO_ICONS.general.perceptionMod":"Perception Mod",
-  "TOKEN_INFO_ICONS.general.perceptionDC":"Perception DC",
+  "TOKEN_INFO_ICONS.general.passivePerception":"Passive Wahrnehmung", 
+  "TOKEN_INFO_ICONS.general.perceptionMod":"Wahrnehmung Mod",
+  "TOKEN_INFO_ICONS.general.perceptionDC":"Wahrnehmung DC",
   "TOKEN_INFO_ICONS.general.passiveStealth":"Passive Stealth",
   "TOKEN_INFO_ICONS.general.passiveInsight":"Passive Insight",
   "TOKEN_INFO_ICONS.general.passiveInvestigation":"Passive Investigation",
   "TOKEN_INFO_ICONS.general.luck":"luck",
-  
-  
-  "TOKEN_INFO_ICONS.general.mr":"MR"
+    
+  "TOKEN_INFO_ICONS.general.magicResistance":"Magieresistenz"
 }
 
