@@ -19,6 +19,7 @@
   "TOKEN_INFO_ICONS.general.movement": "Bewegung",
   
   "TOKEN_INFO_ICONS.general.ac":"Rüstung",
+  "TOKEN_INFO_ICONS.general.encumbrance":"Behinderung",
   
   "TOKEN_INFO_ICONS.general.passivePerception":"Passive Wahrnehmung", 
   "TOKEN_INFO_ICONS.general.perceptionMod":"Wahrnehmung Mod",

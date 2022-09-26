@@ -19,6 +19,7 @@
   "TOKEN_INFO_ICONS.general.movement": "Movement",
   
   "TOKEN_INFO_ICONS.general.ac": "Armor Class",
+  "TOKEN_INFO_ICONS.general.encumbrance": "Encumbrance",
   
   "TOKEN_INFO_ICONS.general.passivePerception": "Passive Perception", 
   "TOKEN_INFO_ICONS.general.perceptionMod": "Perception Mod",

@@ -5,6 +5,8 @@ class TokenInfoIcons {
       if (actor === undefined) return;
 
       let ac = 10
+      let encumbrance = 0;
+      let tableIndex = ""
       if (game.world.data.system === "pf1") {
           ac = actor.system.attributes.ac.normal.total
       }
@@ -13,10 +15,16 @@ class TokenInfoIcons {
       } 
       else if (game.world.data.system === "dsa-41") {
             ac = actor.system.base.combatAttributes.passive.physicalResistance.value
-      } else{
+console.log(actor.items._source)
+            tableIndex = actor.items._source;
+            for (let i = 0; i < tableIndex.length; i++){
+                encumbrance += (tableIndex[i].type === "armor")? tableIndex[i].system.encumbarance : 0;
+            }
+            
+      } else {
           ac = (isNaN(parseInt(actor.system.attributes.ac.value)) || parseInt(actor.system.attributes.ac.value) === 0) ? 10 : parseInt(actor.system.attributes.ac.value);
       }
-
+      
       let perceptionTitle = "Passive Perception";
       let perception = 10;
       if (game.world.data.system === "pf1") {
@@ -33,6 +41,7 @@ class TokenInfoIcons {
       else if (game.world.data.system === "dsa-41") {
             perceptionTitle = "MR";
             perception = actor.system.base.combatAttributes.passive.magicResistance.value
+            
       } else{
           
           perception = actor.system.skills.prc.passive;
@@ -81,7 +90,7 @@ class TokenInfoIcons {
 
       let defaultButtons = '<div class="control-icon token-info-icon">' + speed + '</div><div class="control-icon token-info-icon" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.ac") + ': ' + ac + '"><i class="fas fa-shield-alt"></i> ' + ac + '</div>';
       if (game.world.data.system === "dsa-41"){
-          defaultButtons += '<div class="control-icon token-info-icon" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.magicResistance") + ': ' + perception + '"><i class="fas fa-hand-sparkles"></i> ' + perception + '</div>'
+          defaultButtons += '<div class="control-icon token-info-icon" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.encumbrance") + ': ' + encumbrance + '"><i class="fas fa-weight-hanging"></i> ' + encumbrance + '</div>' + '<div class="control-icon token-info-icon" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.magicResistance") + ': ' + perception + '"><i class="fas fa-hand-sparkles"></i> ' + perception + '</div>'
       } else if (game.world.data.system !== "dcc"){
         defaultButtons += '<div class="control-icon token-info-icon" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.passivePerception") + ': ' + perception + '"><i class="fas fa-eye"></i> ' + perception + '</div>'
       } else{
