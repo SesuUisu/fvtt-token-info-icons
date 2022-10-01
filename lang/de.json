@@ -4,7 +4,7 @@
   "TOKEN_INFO_ICONS.settings.passivesense":"Zeige alle passiven Sinne an (dnd5e)",
   "TOKEN_INFO_ICONS.settings.passivesensetexz":"Show passive perception/investigation/insight/stealth instead of just passive perception",
   "TOKEN_INFO_ICONS.settings.position":"Token Position",
-  "TOKEN_INFO_ICONS.settings.postiontext":"Auf welcher Seite des Tokens sollen die Infos angezeigt werden?",
+  "TOKEN_INFO_ICONS.settings.positiontext":"Auf welcher Seite des Tokens sollen die Infos angezeigt werden?",
   
   "TOKEN_INFO_ICONS.settings.left":"links",
   "TOKEN_INFO_ICONS.settings.right":"rechts",
