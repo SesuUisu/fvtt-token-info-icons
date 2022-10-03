@@ -41,10 +41,10 @@ class TokenInfoIcons {
       else if (game.world.system === "dsa-41") {
             perceptionTitle = "MR";
             perception = actor.system.base.combatAttributes.passive.magicResistance.value
-            
+                     
       } else{
           
-          perception = actor.system.skills.prc.passive;
+          perception = actor.system.skills?.prc?.passive || 0;
       }
 
 
@@ -65,7 +65,11 @@ class TokenInfoIcons {
       } else if (game.world.system === "dcc") {
           speed = '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.movement") + '"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.base + '</span>';
       } else if (game.world.system === "dsa-41") {
-          speed = '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.speed") + '"><i class="fas fa-walking"></i> ' + actor.system.base.movement.speed.value + '</span>';
+          speed = '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.speed") + ': ' + actor.system.base.movement.speed.value + '"><i class="fas fa-walking"></i> ' + actor.system.base.movement.speed.value + '</span>';
+          if(actor.system.base.movement.trot != undefined && actor.system.base.movement.trot.value != 0 && actor.system.base.movement.trot.value != null) speed += '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.trot") + ': ' + actor.system.base.movement.trot.value + '"><i class="fas fa-person-running"></i> ' + actor.system.base.movement.trot.value + "</span>";          
+          if(actor.system.base.movement.gallop != undefined && actor.system.base.movement.gallop.value != 0 && actor.system.base.movement.gallop.value != null) speed += '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.gallop") + ': ' + actor.system.base.movement.gallop.value + '"><i class="fas fa-horse"></i> ' +  actor.system.base.movement.gallop.value + "</span>";          
+          if(actor.system.base.movement.fly != undefined && actor.system.base.movement.fly.value != 0 && actor.system.base.movement.fly.value != null) speed += '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.fly") + ': ' + actor.system.base.movement.fly.value + '"><i class="fas fa-dove"></i> ' +  actor.system.base.movement.fly.value + "</span>";
+          
       } else {
           if (actor.system.attributes.movement.walk != 0 && actor.system.attributes.movement.walk != null) speed += '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.walk") + '"><i class="fas fa-walking"></i> ' + actor.system.attributes.movement.walk + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
           if (actor.system.attributes.movement.swim != 0 && actor.system.attributes.movement.swim != null) speed += '<span class="token-info-speed" title="' + game.i18n.localize( "TOKEN_INFO_ICONS.general.swim") + '"><i class="fas fa-swimmer"></i> ' + actor.system.attributes.movement.swim + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";

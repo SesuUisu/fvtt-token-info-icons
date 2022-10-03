@@ -11,6 +11,8 @@
   
   "TOKEN_INFO_ICONS.general.speed": "Speed",
   "TOKEN_INFO_ICONS.general.walk": "Walk",
+  "TOKEN_INFO_ICONS.general.trot": "Trot",
+  "TOKEN_INFO_ICONS.general.gallop": "Gallop",
   "TOKEN_INFO_ICONS.general.swim": "Swim",
   "TOKEN_INFO_ICONS.general.fly": "Fly",
   "TOKEN_INFO_ICONS.general.burrow": "Burrow",

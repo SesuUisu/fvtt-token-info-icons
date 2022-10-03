@@ -11,6 +11,8 @@
     
   "TOKEN_INFO_ICONS.general.speed": "Geschwindigkeit",
   "TOKEN_INFO_ICONS.general.walk": "Gehen",
+  "TOKEN_INFO_ICONS.general.trot": "Trab",
+  "TOKEN_INFO_ICONS.general.gallop": "Galopp",
   "TOKEN_INFO_ICONS.general.swim": "Schwimmen",
   "TOKEN_INFO_ICONS.general.fly": "Fliegen",
   "TOKEN_INFO_ICONS.general.burrow": "Burrow",
